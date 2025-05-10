@@ -27,7 +27,10 @@ const initializeDBAndServer = async () => {
       * 
       FROM 
       deliveries 
-      WHERE STATUS LIKE '%${status}%';`;
+      WHERE 
+      STATUS 
+      LIKE '%${status}%'
+      ORDER BY id DESC;`;
 
       const array = await db.all(query);
       response.send(array);
